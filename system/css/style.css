@@ -1,0 +1,33 @@
+/*#encabezado
+{
+	width: 1366px;
+	height: 157px;
+}
+#carusel
+{
+	width: 1366px;
+	height: 510px;
+}
+#contenido
+{
+	width: 1366px;
+	height: 100px;
+}*/
+#turnos
+{
+	text-align: center; 
+	font-family: 'gotham-bold'; 
+	color: #1968a8; 
+	font-size: 80pt;
+}
+#mostrar
+{
+	text-align: center; 
+	font-family: 'gotham-bold'; 
+	color: #f27407; 
+	font-size: 80pt;
+}
+body 
+{
+	overflow:hidden;
+}

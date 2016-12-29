@@ -1,0 +1,26 @@
+<div id="encabezado">
+	<img src="img/bannerheader.png" width="1366px" height="157px">
+</div>
+
+<div  style="height: 611px; width: 400px; float: left;">
+	<div style="padding-right: 15px; padding-left: 15px; margin-left: auto; margin-right: auto;">
+		<div>
+			<div ng-controller='turnoController'>
+				<h1 id="turnos">TURNO</h1>
+				<h1 id="mostrar">{{ turno }}</h1>
+			</div>
+			<br><br>
+			<div ng-controller="cajasController">
+				<h1 id="turnos">CAJA</h1>
+				<h1 id="mostrar">{{ caja }}</h1>
+			</div>	
+		</div>
+	</div>
+</div>
+<div style="width: 611px; width: 966px; float: right;">
+	<div id="carusel" style="padding-right: 20px; padding-left: 15px; margin-left: auto; margin-right: auto;">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+        	<div id="consumi" class="carousel-inner"></div>
+    	</div> 
+	</div>
+</div>
