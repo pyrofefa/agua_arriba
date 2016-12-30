@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
     $.ajax({
-        url: "http://10.10.10.11/admin_agua/public/comerciales/mostrar",
+        url: "http://agua.dev/comerciales/mostrar",
         data: "{}",
         dataType: "json",
         type: "GET",
@@ -13,21 +13,20 @@ $(document).ready(function()
                 	$("#myCarousel .carousel-inner .item:first").addClass("active");
 					if (data.tipo=="video") 
                 	{
-                		$("#consumi").append("<div class='item'> <video id='mi-video"+data.id+"' controls> <source src='http://10.10.10.11/admin_agua/public/comercial/"+data.ruta+"'> </video> </div>");
+                		$("#consumi").append("<li class='item video'> <video id='mi-video"+data.id+"'controls> <source src='http://agua.dev/comercial/"+data.ruta+"'> </video> </li>");
                 		//$("#myCarousel").carousel('pause');
                 	}
                 	else if(data.tipo=="imagen")
                 	{
-                		$("#consumi").append("<div class='item'> <img src='http://10.10.10.11/admin_agua/public/comercial/"+data.ruta+"'> </div>");
+                		$("#consumi").append("<li class='item imagen'> <img src='http://agua.dev/comercial/"+data.ruta+"'> </li>");
 					}
 				    
-                    $('#myCarousel').on('slide.bs.carousel', function () 
-                    {
-                        //setTimeout(function(){$('#myCarousel').carousel('pause');}, 1)
-                        console.log('slide');
-                       
-                    });	
-                    $("#mi-video"+data.id).on('ended', function(){
+                    $('#mi-video'+data.id).on('play', function (e) {
+                        //$("#myCarousel").carousel('pause');
+                        console.log('El video: '+data.id+' ha empezado!!!');
+
+                    });
+                    $("#mi-video"+data.id).on('ended', function(e){
         				console.log('El video: '+data.id+' ha finalizado!!!');
         				$("#myCarousel").carousel('next');
     				});

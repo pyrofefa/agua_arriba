@@ -19,8 +19,24 @@
 </div>
 <div style="width: 611px; width: 966px; float: right;">
 	<div id="carusel" style="padding-right: 20px; padding-left: 15px; margin-left: auto; margin-right: auto;">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
         	<div id="consumi" class="carousel-inner"></div>
     	</div> 
+		
 	</div>
 </div>
+<script type="text/javascript">
+	$('#myCarousel').on('slid.bs.carousel', function () 
+    {
+        console.log('slide');
+        var c = $('li.item.video').hasClass("active");
+        console.log(c);
+        
+        if (c==true){
+       		$("#myCarousel").carousel('pause');
+       		$('#mi-video3').get(0).play()                       
+
+		}
+
+    }); 
+</script>
