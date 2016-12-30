@@ -12,22 +12,53 @@
 {
 	width: 1366px;
 	height: 100px;
+}
+#carusel{
+	position: fixed;
+	left: 500px;
 }*/
-#turnos
+#turno
 {
 	text-align: center; 
 	font-family: 'gotham-bold'; 
 	color: #1968a8; 
 	font-size: 80pt;
+	/*position: fixed;
+	left:20px;*/
 }
-#mostrar
+#mostrar_turno
 {
 	text-align: center; 
 	font-family: 'gotham-bold'; 
 	color: #f27407; 
 	font-size: 80pt;
+	/*position: fixed;
+	top: 280px;
+	left: 160px;*/
+}
+#caja
+{
+	text-align: center; 
+	font-family: 'gotham-bold'; 
+	color: #1968a8; 
+	font-size: 80pt;
+	/*position: fixed;
+	left: 40px;
+	top: 420px;*/
+}
+
+#mostrar_caja
+{
+	text-align: center; 
+	font-family: 'gotham-bold'; 
+	color: #f27407; 
+	font-size: 80pt;
+	/*position: fixed;
+	top: 550px;
+	left: 160px;*/
+
 }
 body 
 {
-	/*overflow:hidden;*/
+	overflow:hidden;
 }
