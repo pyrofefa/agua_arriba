@@ -19,7 +19,7 @@
 </div>
 <div style="width: 611px; width: 966px; float: right;">
 	<div id="carusel" style="padding-right: 20px; padding-left: 15px; margin-left: auto; margin-right: auto;">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
         	<div id="consumi" class="carousel-inner"></div>
     	</div> 
 		
@@ -29,14 +29,27 @@
 	$('#myCarousel').on('slid.bs.carousel', function () 
     {
         console.log('slide');
-        var c = $('li.item.video').hasClass("active");
+        var c = $('li.item.video').hasClass("active");//buscando items que son videos
         console.log(c);
+
+        var id = $('.active').children("video").attr("id");//trayendo el id del video k esta en la clase activo
+
+        console.log(id);
         
         if (c==true){
-       		$("#myCarousel").carousel('pause');
-       		$('#mi-video3').get(0).play()                       
-
+       		$("#myCarousel").carousel('pause');//pausando carusel
+       		document.getElementById(id).play();//reporduciendo carusel
+       		console.log("el video: "+id+" ha empezado!!!");                        
+		}
+		if (c==false){
+			console.log('imagen');
+			window.setTimeout(function(){
+				$("#myCarousel").carousel('next');
+			},15000);
 		}
 
     }); 
 </script>
+
+
+ 

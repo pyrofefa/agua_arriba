@@ -20,15 +20,9 @@ $(document).ready(function()
                 	{
                 		$("#consumi").append("<li class='item imagen'> <img src='http://agua.dev/comercial/"+data.ruta+"'> </li>");
 					}
-				    
-                    $('#mi-video'+data.id).on('play', function (e) {
-                        //$("#myCarousel").carousel('pause');
-                        console.log('El video: '+data.id+' ha empezado!!!');
-
-                    });
-                    $("#mi-video"+data.id).on('ended', function(e){
-        				console.log('El video: '+data.id+' ha finalizado!!!');
-        				$("#myCarousel").carousel('next');
+				    $("#mi-video"+data.id).on('ended', function(e){
+        				console.log('El video: mi-video'+data.id+' ha finalizado!!!');
+        				$("#myCarousel").carousel('next');//slide de carusel cuando un video halla terminado
     				});
 
                 })
