@@ -1,27 +1,35 @@
+var timbre = new Audio('sonidos/Glass.wav');
 $(document).ready(function()
 {
+    //alert();
+    
+    varactualizar = setInterval(trayendodatos, 3600000);
+
     $.ajax({
-        url: "http://agua.dev/comerciales/mostrar",
+        //url: "http://192.168.1.57:8080/turnomatic/public/comerciales/mostrar",
+        url: "http://192.168.1.57:8080/turnomatic/public/api/comerciales",
         data: "{}",
         dataType: "json",
         type: "GET",
         contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 $.each(data, function(index, data)
                 {
                 	$("#myCarousel .carousel-inner .item:first").addClass("active");
 					if (data.tipo=="video") 
                 	{
-                		$("#consumi").append("<li class='item video'> <video id='mi-video"+data.id+"'controls> <source src='http://agua.dev/comercial/"+data.ruta+"'> </video> </li>");
+                        //$("#consumi").append("<li class='item video'> <video id='mi-video"+data.id+"' muted> <source src='http://localhost/turnomatic/public/comercial/"+data.ruta+"'> </video> </li>");
+                		$("#consumi").append("<li class='item video'> <video id='mi-video"+data.id+"' muted> <source src='http://192.168.1.57:8080/turnomatic/public/comercial/"+data.ruta+"'> </video> </li>");
                 		//$("#myCarousel").carousel('pause');
                 	}
                 	else if(data.tipo=="imagen")
                 	{
-                		$("#consumi").append("<li class='item imagen'> <img src='http://agua.dev/comercial/"+data.ruta+"'> </li>");
+                        //$("#consumi").append("<li class='item imagen'> <img src='http://localhost/turnomatic/public/comercial/"+data.ruta+"' height='200px'> </li>");
+                		$("#consumi").append("<li class='item imagen'> <img src='http://192.168.1.57:8080/turnomatic/public/comercial/"+data.ruta+"' height='200px'> </li>");
 					}
 				    $("#mi-video"+data.id).on('ended', function(e){
-        				console.log('El video: mi-video'+data.id+' ha finalizado!!!');
+        				//console.log('El video: mi-video'+data.id+' ha finalizado!!!');
         				$("#myCarousel").carousel('next');//slide de carusel cuando un video halla terminado
     				});
 
@@ -36,4 +44,13 @@ $(document).ready(function()
                 //console.log(response);
             }
     });
+
+    
+
 });
+function trayendodatos()
+{
+
+    console.log("funcion");
+    location.reload(); 
+}

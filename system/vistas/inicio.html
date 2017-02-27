@@ -1,49 +1,35 @@
-<div id="encabezado">
-	<img src="img/bannerheader.png" width="1366px" height="157px">
-</div>
-<div class="col-xs-6 col-md-4">
-	<div ng-controller='turnoController'>
-		<h1 id="turno" >TURNO</h1>
-		<h1 id="mostrar_turno">{{ turno }}</h1>
-	</div>
- 	<div ng-controller="cajasController">
-		<h1 id="caja">CAJA</h1>
-		<h1 id="mostrar_caja">{{ caja }}</h1>
-	</div>	
-</div>
-<br>
-<div class="col-xs-12 col-md-8">
-	<div id="carusel">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-        	<div id="consumi" class="carousel-inner"></div>
-    	</div> 
+<br><br><br><br><br><br>
+<div ng-controller="comercialController">
+<div class="row">
+	<div class="col-md-12">
+		<div id="carusel">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	        	<div id="consumi" class="carousel-inner"></div>
+	    	</div> 
+		</div>	
 	</div>
 </div>
+</div>
+<script src="js/comerciales.js"></script>
 <script type="text/javascript">
 	$('#myCarousel').on('slid.bs.carousel', function () 
     {
         console.log('slide');
         var c = $('li.item.video').hasClass("active");//buscando items que son videos
-        console.log(c);
-
+        //console.log(c);
         var id = $('.active').children("video").attr("id");//trayendo el id del video k esta en la clase activo
-
-        console.log(id);
+        //console.log(id);
         
         if (c==true){
        		$("#myCarousel").carousel('pause');//pausando carusel
        		document.getElementById(id).play();//reporduciendo carusel
-       		console.log("el video: "+id+" ha empezado!!!");                        
+       		//console.log("el video: "+id+" ha empezado!!!");                        
 		}
 		if (c==false){
-			console.log('imagen');
+			//console.log('imagen');
 			window.setTimeout(function(){
 				$("#myCarousel").carousel('next');
-			},15000);
+			},45000);
 		}
-
     }); 
 </script>
-
-
- 

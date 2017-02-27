@@ -30,6 +30,7 @@ rutas.controller('inicioController', function($scope, $http)
 {
     $scope.caja =  "0";
     $scope.turno = "0";
+    $scope.tipo = "VENTANILLA";
 });
 rutas.controller('cajasController', function($scope, $http, socket)
 {
@@ -40,6 +41,15 @@ rutas.controller('cajasController', function($scope, $http, socket)
             timbre.play();
         });
     });
+
+     socket.on('tipo',function(data){
+        console.log(data);
+        $scope.$apply(function(){
+            $scope.tipo=data;
+            timbre.play();
+        });
+    });
+
 });
 rutas.controller('turnoController',function($scope, $http, socket)
 {
@@ -50,4 +60,24 @@ rutas.controller('turnoController',function($scope, $http, socket)
             timbre.play();
         });
     })
+});
+rutas.controller('asuntoController', function($scope, $http, socket)
+{
+     socket.on('asunto',function(data){
+        console.log(data);
+        $scope.$apply(function(){
+            $scope.asunto=data;
+            timbre.play();
+        });
+    });
+});
+rutas.controller('comercialController', function($scope, $route, $timeout, socket)
+{
+    socket.on('comercial',function(data){
+        console.log(data);
+        $scope.$apply(function(){
+            $route.reload();
+            //timbre.play();
+        });
+    });
 });

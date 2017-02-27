@@ -13,6 +13,22 @@
 <title>Turnos</title>
 <!--Iniciando el primer controlador inicioController-->
 <body ng-controller='inicioController'>
+<div class="row">
+	<div class="col-md-3">
+		<h1 id="turno"> TURNO</h1>
+	</div>
+	<div class="col-md-3" ng-controller='turnoController'>
+		<h1 id="mostrar_turno">{{ turno }}</h1>
+	</div>
+	<div ng-controller="cajasController">
+		<div class="col-md-2">
+			<h1 id="caja">{{tipo}}</h1>
+		</div>
+		<div class="col-md-3">
+			<h1 id="mostrar_caja">{{ caja }}</h1>
+		</div>
+	</div>	
+</div>
 <div ng-view>
 <!-- Aquí inyectamos las vistas-->	
 </div>
@@ -21,6 +37,6 @@
 <script src="js/angular-resource.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/comerciales.js"></script>
+<!--<script src="js/comerciales.js"></script>-->
 </body>
 </html>
