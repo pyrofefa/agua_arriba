@@ -21,10 +21,21 @@
         //console.log(id);
         
         if (c==true){
+        	console.log("video");
        		$("#myCarousel").carousel('pause');//pausando carusel
        		document.getElementById(id).play();//reporduciendo carusel
-       		//console.log("el video: "+id+" ha empezado!!!");                        
-		}
+       		console.log("el video: "+id+" ha empezado!!!");
+
+
+       		window.setTimeout(function(){
+       			document.getElementById(id).onerror = function (){
+          			//lo que quieras hacer aquí
+      				console.log("el video ha fallado");
+      				$("#myCarousel").carousel('next');
+      			};
+      		},45000);	
+
+       	}
 		if (c==false){
 			//console.log('imagen');
 			window.setTimeout(function(){

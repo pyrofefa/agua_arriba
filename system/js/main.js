@@ -32,46 +32,20 @@ rutas.controller('inicioController', function($scope, $http)
     $scope.turno = "0";
     $scope.tipo = "VENTANILLA";
 });
-rutas.controller('cajasController', function($scope, $http, socket)
-{
-     socket.on('caja',function(data){
-        console.log(data);
-        $scope.$apply(function(){
-            $scope.caja=data;
-            timbre.play();
-        });
-    });
-
-     socket.on('tipo',function(data){
-        console.log(data);
-        $scope.$apply(function(){
-            $scope.tipo=data;
-            timbre.play();
-        });
-    });
-
-});
 rutas.controller('turnoController',function($scope, $http, socket)
 {
     socket.on('turno',function(data){
         console.log(data);
         $scope.$apply(function(){
-            $scope.turno = data;
+        	$scope.turno = data.turno;
+            $scope.caja = data.caja;
+            $scope.letra = data.letra;
+            $scope.tipo = data.tipo;
             timbre.play();
         });
     })
 });
-rutas.controller('asuntoController', function($scope, $http, socket)
-{
-     socket.on('asunto',function(data){
-        console.log(data);
-        $scope.$apply(function(){
-            $scope.asunto=data;
-            timbre.play();
-        });
-    });
-});
-rutas.controller('comercialController', function($scope, $route, $timeout, socket)
+rutas.controller('comercialController', function($scope, $route, socket, $timeout)
 {
     socket.on('comercial',function(data){
         console.log(data);
@@ -80,4 +54,10 @@ rutas.controller('comercialController', function($scope, $route, $timeout, socke
             //timbre.play();
         });
     });
+
+    $timeout(function() {
+        $route.reload();
+        console.log("reset");
+    },32400000);
+
 });
